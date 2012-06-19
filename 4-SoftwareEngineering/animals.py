@@ -25,3 +25,13 @@ def read_animals_file(fname):
     # return the lists
     return (date, time, animal, number)
 
+def animal_mean(numbers):
+    '''
+    Gets the mean of the list numbers.
+    '''
+
+    mean = sum(numbers)/float(len(numbers))
+
+    return mean
+
+

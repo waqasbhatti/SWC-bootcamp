@@ -29,7 +29,22 @@ def test_read_animals_file():
     assert animal == ref_animal, 'animals do not match'
     assert counts == ref_counts , 'counts do not match'
 
+
+from numpy import testing
+
+def test_animal_mean():
+    
+    ref_numbers = [1.,4.,5.,10.,10.,14.,8.,7.]
+    ref_mean = 7.375
+
+    func_mean = animals.animal_mean(ref_numbers)
+    assert abs(ref_mean - func_mean) < 1.0e-5, 'func_mean does not match ref_mean'
+    testing.assert_almost_equal(animals.animal_mean(ref_numbers),ref_mean)
+    assert animals.animal_mean([]) == 0
+
 if __name__ == '__main__':
-    print('running tests...')
+    print('running test_read_animals_file...')
     test_read_animals_file()
 
+    print('running test_animal_mean...')
+    test_animal_mean()
