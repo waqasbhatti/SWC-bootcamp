@@ -61,7 +61,12 @@ def get_mean_animal_sightings(data, wanted_animal):
     dates, times, sightings = get_animal(data,wanted_animal)
     mean_sightings = animal_mean(sightings)
 
-    print('mean sightings = %s' % mean_sightings)
     return mean_sightings
 
 
+def get_mean_animal_sightings_from_file(animal, fname):
+
+    data = read_animals_file(fname)
+    mean_sightings = get_mean_animal_sightings(data,animal)
+
+    return mean_sightings
