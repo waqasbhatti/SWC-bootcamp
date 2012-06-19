@@ -29,5 +29,7 @@ def test_read_animals_file():
     assert animal == ref_animal, 'animals do not match'
     assert counts == ref_counts , 'counts do not match'
 
-test_read_animals_file()
+if __name__ == '__main__':
+    print('running tests...')
+    test_read_animals_file()
 
