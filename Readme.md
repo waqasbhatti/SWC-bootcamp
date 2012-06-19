@@ -25,3 +25,5 @@ will be an hour lunch break at 12:15pm on both days (lunch not provided). There 
 
 The bootcamp will be led by Matt Davis, Michael Droettboom, Joshua R. Smith, and Sasha Wood. It was organized by Software Carpentry, an online
 compendium of resources for scientific computation.
+
+Move every Zig! For Great Justice!
