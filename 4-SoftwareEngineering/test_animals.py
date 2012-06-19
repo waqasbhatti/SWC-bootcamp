@@ -30,6 +30,7 @@ def test_read_animals_file():
     assert counts == ref_counts , 'counts do not match'
 
 
+# to use when comparing floating point numbers
 from numpy import testing
 
 def test_animal_mean():
@@ -40,8 +41,19 @@ def test_animal_mean():
     func_mean = animals.animal_mean(ref_numbers)
     assert abs(ref_mean - func_mean) < 1.0e-5, 'func_mean does not match ref_mean'
     testing.assert_almost_equal(animals.animal_mean(ref_numbers),ref_mean)
-    assert animals.animal_mean([]) == 0
 
+
+# to use to check for zero-division errors
+from nose.tools import raises
+
+@raises(ZeroDivisionError)
+def test_mean_empty_list():
+    animals.animal_mean([])
+
+
+
+# testing the functions manually
+# don't need this for nosetests
 if __name__ == '__main__':
     print('running test_read_animals_file...')
     test_read_animals_file()
