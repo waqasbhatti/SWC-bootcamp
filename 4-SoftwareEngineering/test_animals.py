@@ -18,18 +18,16 @@ def test_read_animals_file():
     ref_date = ['2011-04-22','2011-04-23','2011-04-23',
                 '2011-04-23','2011-04-23']
 
-    ref_time = ['21:06','14:12','10:24','20:08 ','18:46']
+    ref_time = ['21:06', '14:12', '10:24', '20:08', '18:46']
 
     ref_animal = ['Grizzly','Elk','Elk','Wolverine','Muskox']
     
     ref_counts = [36,25,26,31,20]
 
-    if date != ref_date:
-        print('dates do not match')
-    if time != ref_time:
-        print('times do not match')
-    if animal != ref_animal:
-        print('animals do not match')
-    if counts != ref_counts:
-        print('counts do not match')
+    assert date == ref_date, 'dates do not match'
+    assert time == ref_time, 'times do not match'
+    assert animal == ref_animal, 'animals do not match'
+    assert counts == ref_counts , 'counts do not match'
+
+test_read_animals_file()
 
