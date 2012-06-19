@@ -51,6 +51,51 @@ def test_mean_empty_list():
     animals.animal_mean([])
 
 
+def test_get_animal():
+    '''
+    Test the get_animal function
+    '''
+
+    fname = 'animals.txt'
+    animal = 'Elk'
+
+    # reference data
+    # 2011-04-22 21:06 Grizzly 36
+    # 2011-04-23 14:12 Elk 25
+    # 2011-04-23 10:24 Elk 26
+    # 2011-04-23 20:08 Wolverine 31
+    # 2011-04-23 18:46 Muskox 20
+
+    elk_dates = ['2011-04-23','2011-04-23']
+    elk_times = ['14:12','10:24']
+    elk_sightings = [25,26]
+    
+    data = animals.read_animals_file(fname)
+    test_dates, test_times, test_sightings = (
+        animals.get_animal(data,animal)
+        )
+
+    assert test_dates == elk_dates, 'test_dates not same as elk_dates'
+    assert test_times == elk_times, 'test_times not same as elk_times'
+    assert test_sightings == elk_sightings, 'test_sightings not same as elk_sightings'
+
+
+def test_get_mean_animal_sightings():
+    '''
+    Test the get_mean_animal_sightings function
+    '''
+
+    fname = 'animals.txt'
+    animal = 'Elk'
+
+    data = animals.read_animals_file(fname)
+    mean_sightings = animals.get_mean_animal_sightings(data,animal)
+
+    expected_mean_sightings = 25.5
+
+    assert expected_mean_sightings == mean_sightings, 'mean sightings do not match'
+
+
 
 # testing the functions manually
 # don't need this for nosetests
@@ -60,3 +105,5 @@ if __name__ == '__main__':
 
     print('running test_animal_mean...')
     test_animal_mean()
+
+
